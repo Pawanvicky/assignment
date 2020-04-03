@@ -11,6 +11,7 @@ const cors = require('cors');
 const authRoute = require('./server/routes/auth');
 const examRouter = require("./server/routes/examRoute");
 const quesRouter = require("./server/routes/questionRoute");
+const admin = require("./server/routes/admin");
 
 dotenv.config();
 
@@ -35,5 +36,6 @@ app.use(cors({
 app.use('/api/user', authRoute);
 app.use("/api/exam", examRouter);
 app.use("/api/question", quesRouter);
+app.use("/api/admin", admin);
 
 app.listen(8000, () => console.log('Server up and running'));
