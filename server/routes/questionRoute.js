@@ -30,6 +30,4 @@ quesRouter.get("/quesDetails/:id", async (req, res) => {
   res.send(quesDetails);
 });
 
-
-
 module.exports = quesRouter;
