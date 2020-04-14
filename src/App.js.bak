@@ -14,7 +14,7 @@ import CreateExamPage from './components/trainerComponents/CreateExamPage';
 import CreateQuestionPage from './components/trainerComponents/CreateQuestionPage';
 
 const initialState = {
-  examId: '',
+  examId: ''
   examName: '',
   correctAns: 0,
   questions: 0
@@ -53,11 +53,6 @@ function App() {
             <Route path="/guest" exact component={GuestUserLandingPage} />
             <Route path="/admin" exact component={AdminUserViewPage} />
             <Route path="/edit-role" exact component={EditUserRolePage} />
-          	<Route path="/createExam" component={CreateExamPage} />
-            <Route path="/createQues" component={CreateQuestionPage} />
-            <Route path="/exam" component={ExamSelectionPage} />
-            <Route path="/question" component={ExamQuestionPage} />
-            <Route path="/result" component={ResultPage} />
           </Switch>
         </StorageContext.Provider>
       </Router>

@@ -6,8 +6,10 @@ const jwt = require('jsonwebtoken');
 
 // Register
 router.post('/register', async (req, res) => {
+  console.log("Register Called", req.body);
   // Lets validate the data
   const {error} = registerValidation(req.body);
+  if (error) console.log("error =>", error);
   if (error) return res.status(400).send(error.details[0].message);
   
   // Check if the user is already in the DB
@@ -34,7 +36,8 @@ router.post('/register', async (req, res) => {
     email: req.body.email,
     username: req.body.username,
     password: hashedPassword,
-    userrole: req.body.userrole  
+    userrole: req.body.userrole,
+    status: req.body.status  
   });
   try {
     res.status(200);
@@ -61,7 +64,7 @@ router.post('/login', async (req, res) => {
 
   // Create and assign a token
   const token = jwt.sign({_id: user._id}, process.env.TOKEN_SECRET);
-  res.header('auth-token', token).send(token);
+  res.header('auth-token', token).send(user);
 
 });
 

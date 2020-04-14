@@ -6,7 +6,6 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 
-
 //Import Routes
 const authRoute = require('./server/routes/auth');
 const examRouter = require("./server/routes/examRoute");
@@ -18,7 +17,8 @@ dotenv.config();
 // Connecting to  the Database
 mongoose.connect(
   process.env.DB_CONNECTION,
-  { useNewUrlParser: true, 
+  { 
+    useNewUrlParser: true, 
     useUnifiedTopology: true,
     useCreateIndex: true, 
     useFindAndModify: false 
@@ -28,13 +28,17 @@ mongoose.connect(
 
 //Middlewares
 app.use(express.json());
-app.use(bodyParser.urlencoded({
-  extended: true
-}));
+app.use(bodyParser.urlencoded(
+  {
+    extended: true
+  }
+));
 app.use(bodyParser.json());
-app.use(cors({
-  origin: 'http://localhost:3000'
-}));
+app.use(cors(
+  {
+    origin: 'http://localhost:3000'
+  }
+));
 
 //Route Middlewares
 app.use('/api/user', authRoute);

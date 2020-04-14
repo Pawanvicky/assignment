@@ -1,7 +1,6 @@
 const express = require('express');
 const router = express.Router();
 const User = require('../models/User');
-const verify = require('./verifyToken');
 
 // Fetching all the users
 router.get('/', (req, res, next) => {
@@ -12,7 +11,7 @@ router.get('/', (req, res, next) => {
 });
 
 // Finding a specific user by ID
-router.get('/:userId',verify, (req, res, next) => {
+router.get('/:userId', (req, res, next) => {
   const id = req.params.userId;
   User.findById(id)
     .exec()
@@ -29,8 +28,9 @@ router.get('/:userId',verify, (req, res, next) => {
 });
 
 // Updating a specific user by ID
-router.put('/:userId',verify, (req, res, next) => {
+router.put('/:userId', (req, res, next) => {
   const id = req.params.userId;
+  console.log(req.body);
   User.findByIdAndUpdate(id, {userrole: req.body.userrole, status: req.body.status})
     .exec()
     .then(user => {
@@ -46,7 +46,7 @@ router.put('/:userId',verify, (req, res, next) => {
 });
 
 // Deleting a specific user by ID
-router.delete('/:userId',verify, (req, res, next) => {
+router.delete('/:userId', (req, res, next) => {
   const id = req.params.userId;
   User.findByIdAndRemove(id)
     .exec()

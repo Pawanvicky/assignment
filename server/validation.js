@@ -21,8 +21,7 @@ const registerValidation = data => {
     password: Joi.string()
       .min(6)
       .required(),
-    userrole: Joi.number()
-      .max(3),
+    userrole: Joi.number(),
     status: Joi.string()
   };
   return Joi.validate(data, schema);

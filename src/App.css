@@ -1,38 +1,175 @@
-.App {
+body,
+html {
+  padding: 0;
+  max-height: 100vh;
+  box-sizing: border-box;
+}
+
+.user_card {
+  height: auto;
+  width: 350px;
+  margin-top: 85px;
+  margin-bottom: auto;
+  background: #4d4d4d;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+    0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+    0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 5px;
+  -webkit-box-shadow: -2px 0px 12px 4px rgba(133, 107, 31, 1);
+  -moz-box-shadow: -2px 0px 12px 4px rgba(133, 107, 31, 1);
+  box-shadow: -2px 0px 12px 4px rgba(133, 107, 31, 1);
+}
+
+.brand_logo_container {
+  position: absolute;
+  height: 120px;
+  width: 120px;
+  top: -75px;
+  border-radius: 50%;
+  background: #60a3bc;
+  padding: 10px;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.brand_logo {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  border: 2px solid white;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.form_container {
+  margin-top: 50px;
+}
+
+.login_btn {
+  width: 100%;
+  background: #777777 !important;
+  color: white !important;
+}
+
+.login_btn:focus {
+  box-shadow: none !important;
+  outline: 0px !important;
+}
+
+.login_container {
+  padding: 0 2rem;
+}
+
+.input-group-text {
+  background: #777777 !important;
+  color: white !important;
+  border: 0 !important;
+  border-radius: 0.25rem 0 0 0.25rem !important;
+}
+
+.input_user,
+.input_pass:focus {
+  box-shadow: none !important;
+  outline: 0px !important;
+}
+
+.fixed-bottom {
+  background-color: #4d4d4d;
+  color: antiquewhite;
+  text-align: center;
+}
+
+.boxS {
+  background-color: #016154;
+  padding: 75px;
+  padding-bottom: 100px;
+  color: azure;
+  border-radius: 50px;
+  -webkit-box-shadow: -2px 0px 12px 4px rgba(133, 107, 31, 1);
+  -moz-box-shadow: -2px 0px 12px 4px rgba(133, 107, 31, 1);
+  box-shadow: -2px 0px 12px 4px rgba(133, 107, 31, 1);
+}
+
+.selection {
+  color: crimson;
+  font-weight: 500;
+}
+
+.boxI {
+  background-color: #016154;
+  padding: 20px;
+  color: azure;
+  border-radius: 50px;
+  -webkit-box-shadow: -2px 0px 12px 4px rgba(133, 107, 31, 1);
+  -moz-box-shadow: -2px 0px 12px 4px rgba(133, 107, 31, 1);
+  box-shadow: -2px 0px 12px 4px rgba(133, 107, 31, 1);
+}
+
+.selectedOption {
+  margin: 10px;
+  color: #4d4d4d;
+  font-weight: bolder;
+  font-style: italic;
+  font-size: xx-large;
+}
+
+@keyframes load {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.col-md-6 > p {
+  color: antiquewhite;
+  border-radius: 10px;
+  padding: 5px;
+  text-align: center;
+  -webkit-box-shadow: 0px 1px 5px 4px rgba(209, 209, 209, 1);
+  -moz-box-shadow: 0px 1px 5px 4px rgba(209, 209, 209, 1);
+  box-shadow: 0px 1px 5px 4px rgba(209, 209, 209, 1);
 }
 
-.App-link {
-  color: #61dafb;
+ .buttonAlign {
+  margin: 33px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.cardview {
+  width: 325px;
+}
+
+.card {
+  margin-left: -52px;
+}
+
+.input {
+  width: 175px;
+  border-radius: 5px;
+  text-align: center;
+  background-color: #ffffff;
+}
+
+.inputField {
+  width: 100%;
+  border-radius: 0.25rem;
+  border: 1px solid #ced4da;
+  padding: 0.375rem 0.75rem;
+}
+
+.update {
+  margin-top: -10px;
+}
+
+.logout {
+  border-radius: 50%;
+}
+
+.table {
+  margin-bottom: 50px;
 }
