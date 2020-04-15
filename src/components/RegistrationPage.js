@@ -38,7 +38,12 @@ class RegistrationPage extends Component {
       .then(function(response) {
         console.log(response);
         //This is responsible for the page navigation.
-        window.location.replace("/guest");    
+        if (response.data.user) { 
+          window.location.replace("/guest"); 
+        } else {
+          alert(response.data);
+        }
+           
       });
   };
 

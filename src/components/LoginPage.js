@@ -24,28 +24,33 @@ class LoginPage extends Component {
         username: this.state.username,
         password: this.state.password
       })
-      .then(function(response) {
-        let userrole = response.data.userrole;
-        let status = response.data.status;
-
-        console.log(response);
-
-        //This part is responsible for the window navigation after login.
-
-        if (userrole === 3) {
-          window.location.replace("/admin");
-        } else {
-          if (status === "Active") {
-            if (userrole === 1) {
-              window.location.replace("/exam");            
-            }
-            if (userrole === 2) {
-              window.location.replace("/createExam");
-            }
+      .then(function (response) {
+        if (response.data._id) {
+          let userrole = response.data.userrole;
+          let status = response.data.status;
+  
+          console.log(response);
+  
+          //This part is responsible for the window navigation after login.
+  
+          if (userrole === 3) {
+            window.location.replace("/admin");
           } else {
-            window.location.replace("/guest");
+            if (status === "Active") {
+              if (userrole === 1) {
+                window.location.replace("/exam");
+              }
+              if (userrole === 2) {
+                window.location.replace("/createExam");
+              }
+            } else {
+              window.location.replace("/guest");
+            }
           }
+        } else { 
+          alert(response.data);
         }
+       
       });
   };
 

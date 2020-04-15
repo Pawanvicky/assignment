@@ -10,19 +10,19 @@ router.post('/register', async (req, res) => {
   // Lets validate the data
   const {error} = registerValidation(req.body);
   if (error) console.log("error =>", error);
-  if (error) return res.status(400).send(error.details[0].message);
+  if (error) return res.send(error.details[0].message);
   
   // Check if the user is already in the DB
   const emailExist = await User.findOne({ email: req.body.email });
-  if(emailExist) return res.status(400).send('Email already exists');
+  if(emailExist) return res.send('Email already exists');
 
   // Check if the username is available
   const usernameExist = await User.findOne({ username: req.body.username });
-  if(usernameExist) return res.status(400).send('Username already taken, Choose Another!');
+  if(usernameExist) return res.send('Username already taken, Choose Another!');
 
   // Check if the username is available
   const contactExist = await User.findOne({ contact: req.body.contact });
-  if(contactExist) return res.status(400).send('Invalid Entry!');
+  if(contactExist) return res.send('Invalid Entry!');
 
   // Hash passwords
   const salt = await bcrypt.genSalt(10);
@@ -43,8 +43,8 @@ router.post('/register', async (req, res) => {
     res.status(200);
     const savedUser = await user.save();
     res.send({user: savedUser});
-  } catch {
-    res.status(400).send(error);
+  } catch(err) {
+    res.send({ message: err });
   }
 });
 
@@ -52,15 +52,15 @@ router.post('/register', async (req, res) => {
 router.post('/login', async (req, res) => {
   // Lets validate the data
   const {error} = loginValidation(req.body);
-  if (error) return res.status(400).send(error.details[0].message);
+  if (error) return res.send(error.details[0].message);
   
   // Check if the Username exists in the DB
   const user = await User.findOne({ username: req.body.username });
-  if(!user) return res.status(400).send('User Name not found!');
+  if(!user) return res.send('User Name not found!');
  
   // Password verification
   const validPass = await bcrypt.compare(req.body.password, user.password);
-  if(!validPass) return res.status(400).send('Invalid Password!');
+  if(!validPass) return res.send('Invalid Password!');
 
   // Create and assign a token
   const token = jwt.sign({_id: user._id}, process.env.TOKEN_SECRET);
