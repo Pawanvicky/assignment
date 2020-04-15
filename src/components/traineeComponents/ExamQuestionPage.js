@@ -1,4 +1,6 @@
 import React, { useEffect, useState, useContext } from 'react'
+import Header from "../Header";
+import Footer from "../Footer";
 import axios from 'axios'
 import StorageContext from '../../StorageContext'
 import loading from '../../images/loading.gif';
@@ -64,6 +66,8 @@ function ExamQuestionPage(props) {
 
 
     return (
+        <React.Fragment>
+        <Header />
         <div>
             <fieldset className="bg-light border border-dark p-2 m-5 col-11">
                 <strong className="float-right m-2 position-relative"> <b>Timer: {timer} seconds</b></strong>
@@ -91,7 +95,9 @@ function ExamQuestionPage(props) {
                     <button type="submit" className="btn btn-primary p-2 ml-3 float-right text-white">Submit</button>
                 </form>}
             </fieldset>
-        </div >
+            </div >
+            <Footer />
+      </React.Fragment>
     )
 }
 

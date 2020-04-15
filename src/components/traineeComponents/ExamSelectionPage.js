@@ -1,5 +1,7 @@
 import React, { useEffect, useState, useContext } from 'react';
-import {Container} from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
+import Header from "../Header";
+import Footer from "../Footer";
 import axios from 'axios';
 import StorageContext from '../../StorageContext';
 import loading from '../../images/loading.gif';
@@ -25,6 +27,8 @@ function ExamSelectionPage(props) {
     }
 
     return (
+        <React.Fragment>
+        <Header />
         <div>
             <Container>
                 <fieldset className="bg-light border border-dark p-2 m-5">
@@ -58,7 +62,9 @@ function ExamSelectionPage(props) {
                     </div>
                 </fieldset>
             </Container>
-        </div>
+            </div>
+            <Footer />
+      </React.Fragment>
     )
 }
 

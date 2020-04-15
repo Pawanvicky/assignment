@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react'
 import axios from 'axios'
+import Header from "../Header";
+import Footer from "../Footer";
 import loading from '../../images/loading.gif';
 import StorageContext from '../../StorageContext';
 
@@ -49,6 +51,8 @@ function CreateExamPage(props) {
     };
 
     return (
+        <React.Fragment>
+        <Header />
         <div>
             <div className='mt-5 row'>
                 <div className='col-3'></div>
@@ -97,7 +101,9 @@ function CreateExamPage(props) {
                     </div>
                 </fieldset>
             </div>
-        </div>
+            </div>
+            <Footer />
+      </React.Fragment>
     )
 }
 

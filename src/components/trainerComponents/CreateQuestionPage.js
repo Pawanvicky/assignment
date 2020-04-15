@@ -1,5 +1,7 @@
 import React, { useContext, useState } from 'react'
 import StorageContext from '../../StorageContext';
+import Header from "../Header";
+import Footer from "../Footer";
 import axios from 'axios'
 
 function CreateQuestionPage(props) {
@@ -35,6 +37,8 @@ function CreateQuestionPage(props) {
     }
 
     return (
+        <React.Fragment>
+        <Header />
         <div>
             <div className="bg-light p-2 m-5" ><b>Exam Name: {sendState.examName}</b></div>
             <form id="question-form" onSubmit={(e) => addQuest(e)}>
@@ -87,7 +91,9 @@ function CreateQuestionPage(props) {
             </form>
 
             <button className="btn btn-dark mr-5 float-right text-white" onClick={backPage}>Done</button>
-        </div>
+            </div>
+            <Footer />
+      </React.Fragment>
     )
 }
 

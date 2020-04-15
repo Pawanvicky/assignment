@@ -1,4 +1,6 @@
 import React, { useContext } from 'react'
+import Header from "../Header";
+import Footer from "../Footer";
 import StorageContext from '../../StorageContext'
 import { Container } from 'react-bootstrap';
 
@@ -7,6 +9,8 @@ function ResultPage() {
     const { sendState } = useContext(StorageContext);
 
     return (
+        <React.Fragment>
+        <Header />
         <div>
             <Container>
                 <fieldset className="bg-light border border-dark p-2 m-5">
@@ -27,6 +31,9 @@ function ResultPage() {
                 </fieldset>
             </Container>
         </div>
+        <Footer />
+        </React.Fragment>
+        
     )
 }
 
