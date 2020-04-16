@@ -13,6 +13,8 @@ import ResultPage from './components/traineeComponents/ResultPage';
 import CreateExamPage from './components/trainerComponents/CreateExamPage';
 import CreateQuestionPage from './components/trainerComponents/CreateQuestionPage';
 
+
+// Code to store the data.
 const initialState = {
   examId: '',
   examName: '',
